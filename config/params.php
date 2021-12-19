@@ -1,7 +1,7 @@
 <?php
 return [
     // judge 数据所在目录
-    'judgeProblemDataPath' => dirname(__FILE__) . '/../judge/data/',
+    'judgeProblemDataPath' => dirname(__FILE__) . '/../../../../JUDGEDATA/data/',
 
     // polygon 数据所在目录
     'polygonProblemDataPath' => dirname(__FILE__) . '/../polygon/data/',

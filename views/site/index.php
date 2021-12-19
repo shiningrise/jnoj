@@ -18,7 +18,7 @@ $this->title = Yii::$app->setting->get('ojName');
         <div class="blog-main">
             <?php foreach ($news as $v): ?>
                 <div class="blog-post">
-                    <h2 class="blog-post-title"><?= Html::a(Html::encode($v['title']), ['/site/news', 'id' => $v['id']]) ?></h2>
+                    <h3 class="blog-post-title"><?= Html::a(Html::encode($v['title']), ['/site/news', 'id' => $v['id']]) ?></h3>
                     <p class="blog-post-meta">
                         <span class="glyphicon glyphicon-time"></span> <?= Yii::$app->formatter->asDate($v['created_at']) ?></p>
                 </div>
@@ -31,7 +31,10 @@ $this->title = Yii::$app->setting->get('ojName');
     <div class="col-md-4">
         <div class="sidebar-module sidebar-module-inset">
             <h4>关于</h4>
-            <p>Online Judge系统（简称OJ）是一个在线的判题系统。 用户可以在线提交程序多种程序（如C、C++、Java）源代码，系统对源代码进行编译和执行， 并通过预先设计的测试数据来检验程序源代码的正确性。</p>
+            <p>
+                Online Judge系统（简称OJ）是一个在线的判题系统。 用户可以在线提交程序多种程序（如C、C++、Java）源代码，系统对源代码进行编译和执行， 并通过预先设计的测试数据来检验程序源代码的正确性。建议使用《编程竞赛宝典》等配套教材使用本网站更佳。
+                
+            </p>
         </div>
         <?php if (!empty($contests)): ?>
         <div class="sidebar-module">

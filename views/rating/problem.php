@@ -8,6 +8,11 @@ use app\models\User;
 /* @var $currentPage integer */
 /* @var $defaultPageSize integer */
 
+if(!Yii::$app->user->identity->isAdmin())
+{
+    return null;
+}
+
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Rating');

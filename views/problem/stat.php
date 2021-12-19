@@ -10,6 +10,15 @@ use app\models\Solution;
 /* @var $searchModel app\models\SolutionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+if((!Yii::$app->user->isGuest)&&(!Yii::$app->user->identity->isVerifyEmail()))
+{
+    if(!strstr(Yii::$app->user->identity->email,"@jnoj.org")==false)
+    {
+        echo "请先验证邮箱！";
+        return null;
+    }
+}
+
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Problems'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

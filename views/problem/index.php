@@ -10,6 +10,15 @@ use justinvoelker\tagging\TaggingWidget;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $solvedProblem array */
 
+/*if((!Yii::$app->user->isGuest)&&(!Yii::$app->user->identity->isVerifyEmail()))
+{
+    if(!strstr(Yii::$app->user->identity->email,"@jnoj.org")==false)
+    {
+        echo "请先验证邮箱！";
+        return null;
+    }
+}*/
+
 $this->title = Yii::t('app', 'Problems');
 ?>
 <div class="row">

@@ -10,6 +10,29 @@ use app\models\Solution;
 /* @var $solution app\models\Solution */
 /* @var $submissions array */
 
+['/problem/view', 'id' => $model->id, 'view' => 'classic'];
+/*if(Yii::$app->user->identity->isAdmin())
+{
+    //header('location:'+strval($model->id)+'?view=classic');
+    //echo var_dump(strval($model->id));
+    //$JumpProblemURL="location:".strval($model->id)."?view=classic";
+    //echo $JumpProblemURL;
+    header("location:".strval($model->id)."?view=classic");
+    //echo (strstr(Yii::$app->user->identity->email,"@jnoj.org")==false);
+}*/
+
+if((!Yii::$app->user->isGuest)&&(!Yii::$app->user->identity->isVerifyEmail()))
+{
+    if(!strstr(Yii::$app->user->identity->email,"@jnoj.org"))
+    {
+        echo "请先验证邮箱！";
+        //echo "网站调试中,如看到此问题且以验证邮箱,请稍后刷新网页";
+        return null;
+    }
+}
+
+header("location:".strval($model->id)."?view=classic");
+
 $this->title = $model->id . ' - ' . $model->title;
 
 $this->registerJsFile(Yii::getAlias('@web/js/splitter.min.js'));

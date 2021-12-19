@@ -6,6 +6,19 @@
 /* @var $currentPage integer */
 /* @var $defaultPageSize integer */
 
+if(!Yii::$app->user->identity->isAdmin())
+{
+    return null;
+}
+if(Yii::$app->user->identity->isAdmin())
+{
+    //echo $model->id;
+    //echo var_dump(!strstr(Yii::$app->user->identity->email,"@jnoj.org")==false);
+}
+//echo var_dump(Yii::$app->user->identity->email);
+//echo strstr(Yii::$app->user->identity->email,"@jnoj.org");
+//echo Yii::$app->user->identity->email;
+
 use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Rating');

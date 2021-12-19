@@ -275,9 +275,9 @@ class Solution extends ActiveRecord
         $arr = [
             '' => 'All',
             '0' => 'C',
-            '1' => 'C++',
-            '2' => 'Java',
-            '3' => 'Python3'
+            '1' => 'C++'//,
+            // '2' => 'Java',
+            // '3' => 'Python3'
         ];
         return $status === '' ? $arr : $arr[$status];
     }

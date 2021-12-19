@@ -76,6 +76,14 @@ class SignupForm extends Model
         $user->is_verify_email = User::VERIFY_EMAIL_NO;
         $user->setPassword($this->password);
         $user->generateAuthKey();
+        
+        $email_domain=strstr($user->email,'@');
+        if($email_domain!='@qq.com'&&$email_domain!='@163.com'&&$email_domain!='@126.com'&&$email_domain!='@139.com'&&$email_domain!='@gmail.com'&&$email_domain!='@sina.cn'&&$email_domain!='@sian.com')
+        {
+            Yii:$app->session->setFlash('error','错误：邮箱后缀不受支持。目前只支持qq.com,163.com,126.com,gmail.com,sina.com,sina.cn。');
+            return null;
+        }
+        
         if (Yii::$app->setting->get('mustVerifyEmail')) {
             // 发送邮箱
             $user->generateEmailVerificationToken();
